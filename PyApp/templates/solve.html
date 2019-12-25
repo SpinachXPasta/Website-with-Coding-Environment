@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+  <head>
+    <title>Choose which question to solve, press submit to get link</title>
+    <meta charset = "UTF-8" />
+  </head>
+  <body>
+    <h1>Form Demo</h1>
+    <form action= "{{ url_for('solve') }}" method="POST">
+       <fieldset>
+          <legend>Selecting elements</legend>
+          <p>
+             <label>Select list</label>
+             <select name= 'QA'>
+              {% for QA in QAS %}
+                {% if selected_tvalue == QA %}
+                    <option value="{{ QA.id }}" selected='selected'>{{ QA }}</option>
+                {% else %}
+                     <option value="{{ QA.id }}" >{{ QA.question }}</option>
+                {% endif %}
+              {% endfor %}
+              </select>
+              <input type="submit" value="Submit" />
+          </p>
+       </fieldset>
+    </form>
+    <h1>{{value}}</h1>
+    {% if value != None %}
+    <a href={{l1}}>{{link}}</a>
+    {% endif %}
+  </body>
+</html>

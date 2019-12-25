@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <h1>Add Question(String) , data (List) , answer (List), isnum (Boolean)[Whether answer is numerical or text, 1 for text anything else is counted as numeric], lastly add difficulty 1-10</h1>
+    <form method="POST" action="/admin">
+        <input type="text" name="question">
+        <input type="text" name="data">
+        <input type="text" name="answer">
+        <input type="text" name="isnum">
+        <input type="text" name="dif">
+        <input type="submit" value="Add">
+    </form>
+
+    <h1>Questions</h1>
+    {% for QA in QAS %}
+    <p>{{QA.id, QA.question, QA.answer}}</p>
+    <form method="POST" action="./update">
+      <input type="hidden" value="{{QA.id}}" name="id">
+      <input type="hidden" value="{{QA.question}}" name="oldquestion">
+      <input type="text" value="{{QA.question}}" name="newquestion">
+      <input type="hidden" value="{{QA.data}}" name="olddata">
+      <input type="text" value="{{QA.data}}" name="newdata">
+      <input type="hidden" value="{{QA.answer}}" name="oldanswer">
+      <input type="text" value="{{QA.answer}}" name="newanswer">
+      <input type="hidden" value="{{QA.isnum}}" name="oldisnum">
+      <input type="text" value="{{QA.isnum}}" name="newisnum">
+      <input type="hidden" value="{{QA.dif}}" name="olddif">
+      <input type="text" value="{{QA.dif}}" name="newdif">
+      <input type="submit" value="Update">
+    </form>
+    <form method="POST" action="./delete">
+      <input type="hidden" value="{{QA.id}}" name="id">
+      <input type="submit" value="Delete">
+    </form>
+  {% endfor %}
+  </body>
+</html>

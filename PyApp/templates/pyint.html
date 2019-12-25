@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1>{{QA.question}}</h1>
+  </body>
+
+
+  <head>
+    {{ codemirror.include_codemirror() }}
+  </head>
+  <h1>{{intro}}</h1>
+  <body>
+    <form method="POST">
+       {{ form.source_code }}
+       <input type="submit" value="OK">
+    </form>
+    <h1>{{message}}</h1>
+    <h1>{{evmsg}}</h1>
+    <h1>Output:</h1>
+    <h1>{{evx}}</h1>
+    <a href="http://127.0.0.1:5000">home</a>
+  </body>
+</html>
